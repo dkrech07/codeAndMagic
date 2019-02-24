@@ -1,10 +1,23 @@
 'use strict';
 
-var CLOUD_WIDTH = 500;
-var CLOUD_HEIGHT = 200;
+var CLOUD_WIDTH = 420;
+var CLOUD_HEIGHT = 270;
 var CLOUD_X = 100;
-var CLOUD_Y = 50;
+var CLOUD_Y = 10;
 var GAP = 10;
+
+window.renderStatistics = function(ctx, players, times) {
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+  ctx.fillRect(CLOUD_X + GAP, CLOUD_Y + GAP, CLOUD_WIDTH, CLOUD_HEIGHT)
+
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(CLOUD_X, CLOUD_Y, CLOUD_WIDTH, CLOUD_HEIGHT);
+};
+
+
+/*
+
+
 var FONT_GAP = 15;
 var TEXT_WIDTH = 50;
 var BAR_HEIGHT = 20;
@@ -40,3 +53,4 @@ window.renderStatistics = function(ctx, players, times) {
     ctx.fillRect(CLOUD_X + GAP + TEXT_WIDTH, CLOUD_Y + GAP + (GAP + BAR_HEIGHT) * i, (barWidth * times[i]) / maxTime, BAR_HEIGHT);
   }
 };
+*/
