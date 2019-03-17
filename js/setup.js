@@ -18,21 +18,41 @@ var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43,107)', 'rgb(146, 100, 161)
 // Массив цвета глаз
 var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 
+
+// Генерация случайных данных
+function wizardRandom(feature) {
+  var x = Math.floor(feature.length * Math.random());
+  return feature[x];
+}
+
+// Вывод случайных данных в консоль
+console.log(wizardRandom(WIZARD_NAMES));
+console.log(wizardRandom(WIZARD_SECOND_NAMES));
+console.log(wizardRandom(COAT_COLORS));
+console.log(wizardRandom(EYES_COLORS));
+
 var wizards = [{
-    name: WIZARD_NAMES[0],
-    coatColor: 'rgb(241, 43, 107)'
+    name: wizardRandom(WIZARD_NAMES) + ' ' + wizardRandom(WIZARD_SECOND_NAMES),
+    coatColor: wizardRandom(COAT_COLORS),
+    eyesColor: wizardRandom(EYES_COLORS)
   },
   {
-    name: WIZARD_NAMES[1],
-    coatColor: 'rgb(215, 210, 55)'
+    name: wizardRandom(WIZARD_NAMES) + ' ' + wizardRandom(WIZARD_SECOND_NAMES),
+    secondName: wizardRandom(WIZARD_SECOND_NAMES),
+    coatColor: wizardRandom(COAT_COLORS),
+    eyesColor: wizardRandom(EYES_COLORS)
   },
   {
-    name: WIZARD_NAMES[2],
-    coatColor: 'rgb(101, 137, 164)'
+    name: wizardRandom(WIZARD_NAMES) + ' ' + wizardRandom(WIZARD_SECOND_NAMES),
+    secondName: wizardRandom(WIZARD_SECOND_NAMES),
+    coatColor: wizardRandom(COAT_COLORS),
+    eyesColor: wizardRandom(EYES_COLORS)
   },
   {
-    name: WIZARD_NAMES[3],
-    coatColor: 'rgb(127, 127, 127)'
+    name: wizardRandom(WIZARD_NAMES) + ' ' + wizardRandom(WIZARD_SECOND_NAMES),
+    secondName: wizardRandom(WIZARD_SECOND_NAMES),
+    coatColor: wizardRandom(COAT_COLORS),
+    eyesColor: wizardRandom(EYES_COLORS)
   }
 ];
 
@@ -41,6 +61,7 @@ for (var i = 0; i < wizards.length; i++) {
 
   wizardElement.querySelector('.setup-similar-label').textContent = wizards[i].name;
   wizardElement.querySelector('.wizard-coat').style.fill = wizards[i].coatColor;
+  wizardElement.querySelector('.wizard-eyes').style.fill = wizards[i].eyesColor;
 
   similarListElement.appendChild(wizardElement);
 }
