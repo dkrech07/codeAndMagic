@@ -25,36 +25,23 @@ function wizardRandom(feature) {
   return feature[x];
 }
 
-// Вывод случайных данных в консоль
-console.log(wizardRandom(WIZARD_NAMES));
-console.log(wizardRandom(WIZARD_SECOND_NAMES));
-console.log(wizardRandom(COAT_COLORS));
-console.log(wizardRandom(EYES_COLORS));
+// Список магов
+var wizards = [];
 
-var wizards = [{
-    name: wizardRandom(WIZARD_NAMES) + ' ' + wizardRandom(WIZARD_SECOND_NAMES),
-    coatColor: wizardRandom(COAT_COLORS),
-    eyesColor: wizardRandom(EYES_COLORS)
-  },
-  {
-    name: wizardRandom(WIZARD_NAMES) + ' ' + wizardRandom(WIZARD_SECOND_NAMES),
-    secondName: wizardRandom(WIZARD_SECOND_NAMES),
-    coatColor: wizardRandom(COAT_COLORS),
-    eyesColor: wizardRandom(EYES_COLORS)
-  },
-  {
-    name: wizardRandom(WIZARD_NAMES) + ' ' + wizardRandom(WIZARD_SECOND_NAMES),
-    secondName: wizardRandom(WIZARD_SECOND_NAMES),
-    coatColor: wizardRandom(COAT_COLORS),
-    eyesColor: wizardRandom(EYES_COLORS)
-  },
-  {
-    name: wizardRandom(WIZARD_NAMES) + ' ' + wizardRandom(WIZARD_SECOND_NAMES),
-    secondName: wizardRandom(WIZARD_SECOND_NAMES),
-    coatColor: wizardRandom(COAT_COLORS),
-    eyesColor: wizardRandom(EYES_COLORS)
+function wizardsList(quantity) {
+  for (var i = 0; i < quantity; i++) {
+    var wizard = {
+      name: wizardRandom(WIZARD_NAMES) + ' ' + wizardRandom(WIZARD_SECOND_NAMES),
+      coatColor: wizardRandom(COAT_COLORS),
+      eyesColor: wizardRandom(EYES_COLORS)
+    };
+    wizards[i] = wizard;
   }
-];
+  return wizards;
+}
+
+// Количество магов - 4, задаем 4 массива
+wizardsList(4);
 
 for (var i = 0; i < wizards.length; i++) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
