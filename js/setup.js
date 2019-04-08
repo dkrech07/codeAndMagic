@@ -1,5 +1,12 @@
-var userDialog = document.querySelector('.setup');
-userDialog.classList.remove('hidden');
+// var userDialog = document.querySelector('.setup');
+// userDialog.classList.remove('hidden');
+
+var setupOpen = document.querySelector('.setup-open');
+var setup = document.querySelector('.setup');
+
+setupOpen.addEventListener('click', function() {
+  setup.classList.remove('hidden');
+});
 
 document.querySelector('.setup-similar').classList.remove('hidden');
 
