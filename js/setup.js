@@ -1,35 +1,45 @@
-// var userDialog = document.querySelector('.setup');
-// userDialog.classList.remove('hidden');
+var ESC_KEYCODE = 27;
+var ENTER_KEYCODE = 13;
 
 var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = setup.querySelector('.setup-close');
 var userNameInput = setup.querySelector('.setup-user-name');
 
-setupOpen.addEventListener('click', function() {
-  setup.classList.remove('hidden');
+var onPopupEscPress = function(evt) {
+  if (evt.keyCode === ESC_KEYCODE) {
+    closePopup();
+  }
+};
 
-  document.addEventListener('keydown', function(evt) {
-    if (evt.keyCode === 27) {
-      setup.classList.add('hidden');
-    }
-  });
+var openPopup = function() {
+  setup.classList.remove('hidden');
+  document.addEventListener('keydown', onPopupEscPress);
+};
+
+var closePopup = function() {
+  setup.classList.add('hidden');
+  document.removeEventListener('keydown', onPopupEscPress);
+};
+
+setupOpen.addEventListener('click', function() {
+  openPopup();
 });
 
 setupOpen.addEventListener('keydown', function(evt) {
-  if (evt.keyCode === 13) {
-    setup.classList.remove('hidden');
-  }
-});
-
-setupClose.addEventListener('keydown', function(evt) {
-  if (evt.keyCode === 13) {
-    setup.classList.add('hidden');
+  if (evt.keyCode === ENTER_KEYCODE) {
+    openPopup();
   }
 });
 
 setupClose.addEventListener('click', function() {
-  setup.classList.add('hidden');
+  closePopup();
+});
+
+setupClose.addEventListener('keydown', function(evt) {
+  if (evt.keyCode === ENTER_KEYCODE) {
+    closePopup();
+  }
 });
 
 userNameInput.addEventListener('invalid', function(evt) {
