@@ -5,6 +5,12 @@ var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = setup.querySelector('.setup-close');
 var userNameInput = setup.querySelector('.setup-user-name');
+var wizardCoat = document.querySelector('.setup-wizard').querySelector('.wizard-coat');
+var wizardEyes = document.querySelector('.setup-wizard').querySelector('.wizard-eyes');
+
+var getRandom = function(n) {
+  return Math.floor(Math.random() * n.length);
+}
 
 var onPopupEscPress = function(evt) {
   if (evt.keyCode === ESC_KEYCODE) {
@@ -21,6 +27,14 @@ var closePopup = function() {
   setup.classList.add('hidden');
   document.removeEventListener('keydown', onPopupEscPress);
 };
+
+var coatColorHandler = function() {
+  return wizardCoat.style.fill = COAT_COLORS[getRandom(COAT_COLORS)];
+}
+
+var eyesColorHandler = function() {
+  return wizardEyes.style.fill = EYES_COLORS[getRandom(EYES_COLORS)];
+}
 
 setupOpen.addEventListener('click', function() {
   openPopup();
@@ -41,6 +55,10 @@ setupClose.addEventListener('keydown', function(evt) {
     closePopup();
   }
 });
+
+wizardCoat.addEventListener('click', coatColorHandler);
+
+wizardEyes.addEventListener('click', eyesColorHandler);
 
 userNameInput.addEventListener('invalid', function(evt) {
   if (userNameInput.validiti.tooShort) {
