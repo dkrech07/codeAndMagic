@@ -46,14 +46,6 @@ var closePopup = function() {
   document.removeEventListener('keydown', onPopupEscPress);
 };
 
-var coatColorHandler = function() {
-  return wizardCoat.style.fill = wizardRandom(COAT_COLORS);
-}
-
-var eyesColorHandler = function() {
-  return wizardEyes.style.fill = wizardRandom(EYES_COLORS);
-}
-
 var fireballColorHandler = function() {
   fireballColor.style = 'background-color: ' + wizardRandom(FIREBALL_COLORS);
 }
@@ -78,11 +70,23 @@ setupClose.addEventListener('keydown', function(evt) {
   }
 });
 
+var count = 0;
+var coatColorHandler = function() {
+
+  wizardCoat.style.fill = COAT_COLORS[count];
+
+  if (count === COAT_COLORS.length - 1) {
+    count = 0
+  } else {
+    count = count + 1;
+  };
+}
+
 wizardCoat.addEventListener('click', coatColorHandler);
 
-wizardEyes.addEventListener('click', eyesColorHandler);
-
-fireballColor.addEventListener('click', fireballColorHandler);
+// wizardEyes.addEventListener('click', eyesColorHandler);
+//
+// fireballColor.addEventListener('click', fireballColorHandler);
 
 userNameInput.addEventListener('invalid', function(evt) {
   if (userNameInput.validiti.tooShort) {
