@@ -25,10 +25,6 @@ var closePopup = function() {
   document.removeEventListener('keydown', onPopupEscPress);
 };
 
-var fireballColorHandler = function() {
-  fireballColor.style = 'background-color: ' + wizardRandom(FIREBALL_COLORS);
-}
-
 setupOpen.addEventListener('click', function() {
   openPopup();
 });
@@ -76,11 +72,11 @@ var eyesColorHandler = function() {
 }
 
 // Изменение цвета файербола
-var eyesColorHandler = function() {
+var fereballColorHandler = function() {
 
-  fireballColor.style.fill = EYES_COLORS[count + 1];
+  fireballColor.style.fill = FIREBALL_COLORS[count + 1];
   count = count + 1;
-  if (count === EYES_COLORS.length - 1) {
+  if (count === FIREBALL_COLORS.length - 1) {
     count = 0
   } else {
     count + 1;
@@ -134,6 +130,9 @@ var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43,107)', 'rgb(146, 100, 161)
 
 // Массив цвета глаз
 var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
+
+// Массив цвета файербола
+var FIREBALL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
 
 // Генерация случайных данных
