@@ -50,6 +50,8 @@ setupClose.addEventListener('keydown', function(evt) {
 });
 
 var count = 1;
+
+// Изменение цвета плаща
 var coatColorHandler = function() {
 
   wizardCoat.style.fill = COAT_COLORS[count + 1];
@@ -61,11 +63,36 @@ var coatColorHandler = function() {
   };
 }
 
+// Изменение цвета глаз
+var eyesColorHandler = function() {
+
+  wizardEyes.style.fill = EYES_COLORS[count + 1];
+  count = count + 1;
+  if (count === EYES_COLORS.length - 1) {
+    count = 0
+  } else {
+    count + 1;
+  };
+}
+
+// Изменение цвета файербола
+var eyesColorHandler = function() {
+
+  fireballColor.style.fill = EYES_COLORS[count + 1];
+  count = count + 1;
+  if (count === EYES_COLORS.length - 1) {
+    count = 0
+  } else {
+    count + 1;
+  };
+}
+
+
 wizardCoat.addEventListener('click', coatColorHandler);
 
-// wizardEyes.addEventListener('click', eyesColorHandler);
-//
-// fireballColor.addEventListener('click', fireballColorHandler);
+wizardEyes.addEventListener('click', eyesColorHandler);
+
+fireballColor.addEventListener('click', fireballColorHandler);
 
 userNameInput.addEventListener('invalid', function(evt) {
   if (userNameInput.validiti.tooShort) {
