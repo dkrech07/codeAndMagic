@@ -9,6 +9,10 @@ var wizardCoat = document.querySelector('.setup-wizard').querySelector('.wizard-
 var wizardEyes = document.querySelector('.setup-wizard').querySelector('.wizard-eyes');
 var fireballColor = document.querySelector('.setup-fireball-wrap');
 
+var inputCoatColor = document.querySelector('input[name="coat-color"]');
+var inputEyesColor = document.querySelector('input[name="eyes-color"]');
+var inputFireballColor = document.querySelector('input[name="fireball-color"]');
+
 var onPopupEscPress = function(evt) {
   if (evt.keyCode === ESC_KEYCODE) {
     closePopup();
@@ -45,50 +49,55 @@ setupClose.addEventListener('keydown', function(evt) {
   }
 });
 
-var count = 1;
+var count = 0;
 
 // Изменение цвета плаща
 var coatColorHandler = function() {
 
   wizardCoat.style.fill = COAT_COLORS[count + 1];
+  inputCoatColor.value = wizardCoat.style.fill;
   count = count + 1;
   if (count === COAT_COLORS.length - 1) {
-    count = 0
+    count = 0;
   } else {
     count + 1;
   };
+
 }
 
 // Изменение цвета глаз
 var eyesColorHandler = function() {
 
   wizardEyes.style.fill = EYES_COLORS[count + 1];
+  inputEyesColor.value = wizardEyes.style.fill;
   count = count + 1;
   if (count === EYES_COLORS.length - 1) {
-    count = 0
+    count = 0;
   } else {
     count + 1;
   };
 }
 
 // Изменение цвета файербола
-var fereballColorHandler = function() {
+var fireballColorHandler = function() {
 
-  fireballColor.style.fill = FIREBALL_COLORS[count + 1];
+  fireballColor.style.backgroundColor = FIREBALL_COLORS[count + 1];
+  inputFireballColor.value = fireballColor.style.backgroundColor;
+  console.log(inputFireballColor.value);
   count = count + 1;
   if (count === FIREBALL_COLORS.length - 1) {
-    count = 0
+    count = 0;
   } else {
     count + 1;
   };
 }
-
 
 wizardCoat.addEventListener('click', coatColorHandler);
 
 wizardEyes.addEventListener('click', eyesColorHandler);
 
 fireballColor.addEventListener('click', fireballColorHandler);
+
 
 userNameInput.addEventListener('invalid', function(evt) {
   if (userNameInput.validiti.tooShort) {
