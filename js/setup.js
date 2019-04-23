@@ -49,47 +49,53 @@ setupClose.addEventListener('keydown', function(evt) {
   }
 });
 
-var count = 0;
+var coatCount = 0;
+var eyesCount = 0;
+var fireballCount = 0;
 
 // Изменение цвета плаща
 var coatColorHandler = function() {
 
-  wizardCoat.style.fill = COAT_COLORS[count + 1];
-  inputCoatColor.value = wizardCoat.style.fill;
-  count = count + 1;
-  if (count === COAT_COLORS.length - 1) {
-    count = 0;
-  } else {
-    count + 1;
-  };
+  wizardCoat.style.fill = COAT_COLORS[coatCount + 1];
+  inputCoatColor.value = COAT_COLORS[coatCount + 1];
+  coatCount = coatCount + 1;
+  // if (coatCount === COAT_COLORS.length - 1) {
+  //   coatCount = 0;
+  // } else {
+  //   coatCount + 1;
+  // };
 
 }
 
 // Изменение цвета глаз
 var eyesColorHandler = function() {
 
-  wizardEyes.style.fill = EYES_COLORS[count + 1];
-  inputEyesColor.value = wizardEyes.style.fill;
-  count = count + 1;
-  if (count === EYES_COLORS.length - 1) {
-    count = 0;
-  } else {
-    count + 1;
-  };
+  wizardEyes.style.fill = EYES_COLORS[eyesCount + 1];
+  inputEyesColor.value = EYES_COLORS[eyesCount + 1];
+
+  console.log(inputEyesColor.value);
+
+  eyesCount = eyesCount + 1;
+
+  // if (eyesCount === EYES_COLORS.length - 1) {
+  //   eyesCount = 0;
+  // } else {
+  //   eyesCount + 1;
+  // };
 }
 
 // Изменение цвета файербола
 var fireballColorHandler = function() {
 
-  fireballColor.style.backgroundColor = FIREBALL_COLORS[count + 1];
-  inputFireballColor.value = fireballColor.style.backgroundColor;
-  console.log(inputFireballColor.value);
-  count = count + 1;
-  if (count === FIREBALL_COLORS.length - 1) {
-    count = 0;
-  } else {
-    count + 1;
-  };
+  fireballColor.style.backgroundColor = FIREBALL_COLORS[fireballCount + 1];
+  inputFireballColor.value = FIREBALL_COLORS[fireballCount + 1];
+
+  fireballCount = fireballCount + 1;
+  // if (fireballCount === FIREBALL_COLORS.length - 1) {
+  //   fireballCount = 0;
+  // } else {
+  //   fireballCount + 1;
+  // };
 }
 
 wizardCoat.addEventListener('click', coatColorHandler);
