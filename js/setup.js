@@ -13,8 +13,10 @@ var inputCoatColor = document.querySelector('input[name="coat-color"]');
 var inputEyesColor = document.querySelector('input[name="eyes-color"]');
 var inputFireballColor = document.querySelector('input[name="fireball-color"]');
 
+var isFocus = false;
+
 var onPopupEscPress = function(evt) {
-  if (evt.keyCode === ESC_KEYCODE) {
+  if (evt.keyCode === ESC_KEYCODE && !isFocus) {
     closePopup();
   }
 };
@@ -116,6 +118,16 @@ userNameInput.addEventListener('input', function(evt) {
     target.setCustomValidity('');
   }
 });
+
+userNameInput.addEventListener('focus', function(e) {
+  isFocus = true;
+  console.log('isFocus = true');
+})
+
+userNameInput.addEventListener('focusout', function(e) {
+  isFocus = false;
+  console.log('isFocus = false');
+})
 
 // var userDialog = document.querySelector('.setup');
 // userDialog.classList.remove('hidden');
