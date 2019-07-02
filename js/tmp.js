@@ -1,9 +1,9 @@
 var ESC_KEYCODE = 27;
 var ENTER_KEYCODE = 13;
 
-var setup = document.querySelector('.setup');
-var setupOpen = document.querySelector('.setup-open');
-var setupClose = setup.querySelector('.setup-close');
+// var setup = document.querySelector('.setup');
+// var setupOpen = document.querySelector('.setup-open');
+// var setupClose = setup.querySelector('.setup-close');
 var userNameInput = document.querySelector('.setup-user-name');
 var wizardCoat = document.querySelector('.setup-wizard').querySelector('.wizard-coat');
 var wizardEyes = document.querySelector('.setup-wizard').querySelector('.wizard-eyes');
@@ -15,41 +15,41 @@ var inputFireballColor = document.querySelector('input[name="fireball-color"]');
 
 var isFocus = false;
 
-var onPopupEscPress = function(evt) {
-  if (evt.keyCode === ESC_KEYCODE && !isFocus) {
-    closePopup();
-  }
-};
+// var onPopupEscPress = function(evt) {
+//   if (evt.keyCode === ESC_KEYCODE && !isFocus) {
+//     closePopup();
+//   }
+// };
 
-var openPopup = function() {
-  setup.classList.remove('hidden');
-  document.addEventListener('keydown', onPopupEscPress);
-};
+// var openPopup = function() {
+//   setup.classList.remove('hidden');
+//   document.addEventListener('keydown', onPopupEscPress);
+// };
 
-var closePopup = function() {
-  setup.classList.add('hidden');
-  document.removeEventListener('keydown', onPopupEscPress);
-};
+// var closePopup = function() {
+//   setup.classList.add('hidden');
+//   document.removeEventListener('keydown', onPopupEscPress);
+// };
 
-setupOpen.addEventListener('click', function() {
-  openPopup();
-});
+// setupOpen.addEventListener('click', function() {
+//   openPopup();
+// });
 
-setupOpen.addEventListener('keydown', function(evt) {
-  if (evt.keyCode === ENTER_KEYCODE) {
-    openPopup();
-  }
-});
+// setupOpen.addEventListener('keydown', function(evt) {
+//   if (evt.keyCode === ENTER_KEYCODE) {
+//     openPopup();
+//   }
+// });
 
-setupClose.addEventListener('click', function() {
-  closePopup();
-});
-
-setupClose.addEventListener('keydown', function(evt) {
-  if (evt.keyCode === ENTER_KEYCODE) {
-    closePopup();
-  }
-});
+// setupClose.addEventListener('click', function() {
+//   closePopup();
+// });
+//
+// setupClose.addEventListener('keydown', function(evt) {
+//   if (evt.keyCode === ENTER_KEYCODE) {
+//     closePopup();
+//   }
+// });
 
 var coatCount = 1;
 var eyesCount = 1;
