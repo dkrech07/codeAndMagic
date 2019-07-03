@@ -1,68 +1,65 @@
-// Нажатие на элемент .setup-open удаляет класс hidden
-// у блока setup. Нажатие на элемент .setup-close, расположенный
-//внутри блока setup возвращает ему класс hidden.
+// 'use strict'
+(function() {
 
-var setupDialogElement = document.querySelector('.setup');
-var dialogHandler = setupDialogElement.querySelector('.upload');
+  var setupDialogElement = document.querySelector('.setup'); // Отлавливаю всплывающее окно;
+  var dialogHandler = setupDialogElement.querySelector('.upload'); // Отлавливаю элемент, за который буду перетаскивать окно;
 
-dialogHandler.addEventListener('mousedown', function(evt) {
-  evt.preventDefault();
+  dialogHandler.addEventListener('mousedown', function(evt) {
+    evt.preventDefault(); // Отменяю действие по умолчанию;
 
-  var startCoodrs = {
-    x: evt.clientX,
-    y: evt.clientY
-  };
-
-  var dragged = false;
-
-  var onMouseMove = function(moveEvt) {
-    moveEvt.preventDefault();
-    dragged = true;
-
-    var shift = {
-      x: startCoodrs.x - moveEvt.clientX,
-      y: startCoodrs.y - moveEvt.clientY
-    };
-
+    // Узнаю стартовые координаты;
     var startCoodrs = {
       x: evt.clientX,
       y: evt.clientY
     };
 
-    setupDialogElement.style.top = (setupDialogElement.offsetTop - shift.y) + 'px';
-    setupDialogElement.style.left = (setupDialogElement.offsetLeft - shift.x) + 'px';
+    var dragged = false;
 
-  };
+    // Вычисляю координаты после смещения;
+    var onMouseMove = function(moveEvt) {
+      moveEvt.preventDefault(); // Отменяю действие по умолчанию;
+      dragged = true;
 
-  var onMouseUp = function(upEvt) {
-    upEvt.preventDefault();
-
-    document.removeEventListener('mousemove', onMouseMove);
-    document.removeEventListener('mouseup', onMouseUp);
-
-    if (dragged) {
-      var onClickPreventDefault = function(evt) {
-        evt.preventDefault();
-        dialogHandler.removeEventListener('click', onClickPreventDefault)
+      // Обявляю переменную, в котору записываю зарницу между стартовыми и конечными коодинатами; 
+      var shift = {
+        x: startCoodrs.x - moveEvt.clientX,
+        y: startCoodrs.y - moveEvt.clientY
       };
-      dialogHandler.addEventListener('click', onClickPreventDefault);
-    }
 
-  };
+      startCoodrs = {
+        x: moveEvt.clientX,
+        y: moveEvt.clientY
+      };
 
-  document.addEventListener('mousemove', onMouseMove);
-  document.addEventListener('mouseup', onMouseUp);
-});
+      setupDialogElement.style.top = (setupDialogElement.offsetTop - shift.y) + 'px';
+      setupDialogElement.style.left = (setupDialogElement.offsetLeft - shift.x) + 'px';
+
+    };
+
+    document.addEventListener('mousemove', onMouseMove);
+  });
+
+})();
 
 
+//
 
-
-
-
-
-
-
-startCoodrs = {
-  x: moveEvt.clientX,
-  y: moveEvt.clientY
-};
+//
+//   var onMouseUp = function(upEvt) {
+//     upEvt.preventDefault();
+//
+//     document.removeEventListener('mousemove', onMouseMove);
+//     document.removeEventListener('mouseup', onMouseUp);
+//
+//     if (dragged) {
+//       var onClickPreventDefault = function(evt) {
+//         evt.preventDefault();
+//         dialogHandler.removeEventListener('click', onClickPreventDefault)
+//       };
+//       dialogHandler.addEventListener('click', onClickPreventDefault);
+//     }
+//
+//   };
+//
+//   document.addEventListener('mousemove', onMouseMove);
+//   document.addEventListener('mouseup', onMouseUp);
