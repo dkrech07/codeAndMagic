@@ -28,6 +28,12 @@ var openPopup = function() {
 
 var closePopup = function() {
   setup.classList.add('hidden');
+  // Переписываю коордитаны диалога на изначальные;
+  console.log(setupDialogElement.offsetLeft + ' ' + setupDialogElement.offsetTop);
+
+  setupDialogElement.style.top = 50 + 'px';
+  setupDialogElement.style.left = 50 % -setupDialogElement.width + 'px';
+
   document.removeEventListener('keydown', onPopupEscPress);
 };
 
