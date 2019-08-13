@@ -1,6 +1,6 @@
 (function() {
-  var userDialog = document.querySelector('.setup');
-  userDialog.classList.remove('hidden');
+  // var userDialog = document.querySelector('.setup');
+  // userDialog.classList.remove('hidden');
 
   document.querySelector('.setup-similar').classList.remove('hidden');
 
@@ -18,6 +18,9 @@
 
   // Массив цвета глаз
   var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
+
+  // Массив цвета файербола
+  var FIREBALL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
 
   // Генерация случайных данных
