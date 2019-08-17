@@ -1,5 +1,5 @@
 (function() {
-  var setupDialogElement = document.querySelector('.setup');
+  window.setupDialogElement = document.querySelector('.setup');
   var dialogHandler = setupDialogElement.querySelector('.upload');
 
   dialogHandler.addEventListener('mousedown', function(evt) {

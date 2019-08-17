@@ -17,6 +17,10 @@
   // Массив цвета файербола
   var FIREBALL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
+  // Дефолтное положение попапа при открытии;
+  var LEFT_COORD = 50;
+  var TOP_COORD = 80;
+
   var setup = document.querySelector('.setup');
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = setup.querySelector('.setup-close');
@@ -45,6 +49,9 @@
   var closePopup = function() {
     setup.classList.add('hidden');
     document.removeEventListener('keydown', onPopupEscPress);
+
+    window.setupDialogElement.style.top = TOP_COORD + 'px';
+    window.setupDialogElement.style.left = LEFT_COORD + '%';
   };
 
   setupOpen.addEventListener('click', function() {
