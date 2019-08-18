@@ -1,6 +1,6 @@
 (function() {
   var userDialog = document.querySelector('.setup');
-  // userDialog.classList.remove('hidden');
+  userDialog.classList.remove('hidden');
 
   var similarListElement = document.querySelector('.setup-similar-list');
 
@@ -38,6 +38,5 @@
     document.body.insertAdjacentElement('afterbegin', node);
   };
 
-  window.backend.load(successHandler, errorHandler);
-
+  window.load(successHandler, errorHandler);
 })();
