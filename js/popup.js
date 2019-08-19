@@ -151,13 +151,4 @@
     isFocus = false;
     console.log('isFocus = false');
   });
-
-  // Отправка данных формы;
-  var sendForm = function(evt) {
-    evt.preventDefault();
-    closePopup();
-  };
-
-  var formButton = document.querySelector('.setup-submit');
-  formButton.addEventListener('click', sendForm);
 })();

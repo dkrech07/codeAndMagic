@@ -27,6 +27,8 @@
     },
 
     save: function(data, onLoad, onError) {
+      var URL = 'https://js.dump.academy/code-and-magick';
+
       var xhr = new XMLHttpRequest();
       xhr.responseType = 'json';
 
